@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <table border = '2px'>
+            <tr>
+                <th>Empno</th>
+                <th>Ename</th>
+                <th>Job</th>
+                <th>MGR</th>
+                <th>Hiredate</th>
+                <th>Sal</th>
+                <th>Comm</th>
+                <th>DeptNo</th>
+                <th>Dname</th>
+                <th>DLocation</th>
+            </tr>
+            {% for ob in objects %}
+                <tr>
+                    <td>{{ob.empno}}</td>
+                    <td>{{ob.ename}}</td>
+                    <td>{{ob.job}}</td>
+                    <td>{{ob.mgr}}</td>
+                    <td>{{ob.hiredate}}</td>
+                    <td>{{ob.sal}}</td>
+                    <td>{{ob.comm}}</td>
+                    <td>{{ob.deptno.deptno}}</td>
+                    <td>{{ob.deptno.dname}}</td>
+                    <td>{{ob.deptno.dlocation}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </center>
+</body>
+</html>
