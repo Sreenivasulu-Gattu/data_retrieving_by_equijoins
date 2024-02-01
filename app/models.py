@@ -16,7 +16,8 @@ class Emp(models.Model):
     sal = models.DecimalField(max_digits = 10,decimal_places = 2)
     comm = models.IntegerField(blank = True,null = True)
     deptno = models.ForeignKey(Dept,on_delete = models.CASCADE)
-
+    def __str__(self):
+        return self.ename
 class Salgrade(models.Model):
     grade = models.IntegerField(primary_key = True)
     losal = models.DecimalField(max_digits = 10,decimal_places = 2)

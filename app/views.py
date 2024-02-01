@@ -3,6 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 
 from app.models import *
+from django.db.models import Q
 
 def equijoins(request):
 
@@ -23,3 +24,11 @@ def equijoins(request):
 
     d = {'objects':EMPOBJECTS}
     return render(request,'equijoins.html',d)
+
+def emg_mgr_dept(request):
+    emd = Emp.objects.select_related('deptno','mgr').all()
+    emd = Emp.objects.select_related('deptno','mgr').filter(Q(deptno__dname = 'research') | Q(deptno = 10))
+    emd = Emp.objects.select_related('deptno','mgr').filter(Q(deptno__dlocation = 'dallas') | Q(mgr__ename = 'scott'))
+    emd = Emp.objects.select_related('deptno','mgr').filter(mgr__sal__gte = '3000')
+    d = {'emd':emd}
+    return render(request,'emg_mgr_dept.html',d)
