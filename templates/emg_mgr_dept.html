@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>emg_mgr_dept</title>
+
+</head>
+<body>
+    <center>
+        <table border="3px" >
+            <tr>
+                <th>Ename</th>
+                <th>Manager</th>
+                <th>Dept</th>
+            </tr>
+            {% for i in emd %}
+            <tr>
+                <td>{{i.ename}}</td>
+                <td>{{i.mgr.ename}}</td>
+                <td>{{i.deptno.dname}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</body>
+</html>
